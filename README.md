@@ -7,19 +7,19 @@
 
 ## 2.- Crear las páginas del proyecto en paises/pages 
 exportar los componentes en el modulo paises.module:
-
+```
  exports:[
     PorCapitalComponent,
     PorPaisComponent,
     PorRegionComponent,
     VerPaisComponent
   ]
-
+```
   
 ## 3.- Crear rutas
 
 3.1.- src\app\app-routing.module.ts:
-
+```
 const routes: Routes = [
   { path: '', component: PorPaisComponent, pathMatch: 'full' },
   { path: 'region', component: PorRegionComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'pais/:id', component: VerPaisComponent },
   { path: '**', redirectTo: '' }
 ];
-
+```
 3.2.
 - montar componente sidebar
 - Montar Componente para buscar por país
