@@ -14,3 +14,15 @@ exportar los componentes en el modulo paises.module:
     PorRegionComponent,
     VerPaisComponent
   ]
+
+  
+## 3.- Crear rutas
+
+const routes: Routes = [
+  { path: '', component: PorPaisComponent, pathMatch: 'full' },
+  { path: 'region', component: PorRegionComponent },
+  { path: 'pais', component: PorPaisComponent },
+  { path: 'capital', component: PorCapitalComponent },
+  { path: 'pais/:id', component: VerPaisComponent },
+  { path: '**', redirectTo: '' }
+];

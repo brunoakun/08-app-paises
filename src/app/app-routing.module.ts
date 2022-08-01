@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'pais', component: PorPaisComponent },
   { path: 'capital', component: PorCapitalComponent },
   { path: 'pais/:id', component: VerPaisComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'pais' }
 ];
 
 @NgModule({
