@@ -29,4 +29,6 @@ const routes: Routes = [
   { path: '**', redirectTo: '' }
 ];
 
-3.2.- montar componente sidebar
+3.2.
+- montar componente sidebar
+- Montar Componente para buscar por país
