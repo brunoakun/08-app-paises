@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./por-pais.component.scss']
 })
 export class PorPaisComponent implements OnInit {
-
+  termino: string = '';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submit(){
+    console.log(this.termino);
   }
 
 }
