@@ -1,3 +1,4 @@
+import { PaisService } from './../../services/pais.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorPaisComponent implements OnInit {
   termino: string = '';
-  constructor() { }
+  constructor(private srvPais: PaisService) { }
 
   ngOnInit(): void {
   }
 
-  submit(){
-    console.log(this.termino);
+  buscar() {
+    this.srvPais.buscarPais(this.termino).subscribe((respuesta:any) => {
+      console.log(respuesta);
+    });
   }
+
+  
 
 }
