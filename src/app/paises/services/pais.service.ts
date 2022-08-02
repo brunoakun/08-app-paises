@@ -1,7 +1,6 @@
 import { IPais } from './../interfaces/pais';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, finalize, of, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +8,10 @@ import { catchError, finalize, of, Observable } from 'rxjs';
 
 export class PaisService {
   private apiUrl: string = 'https://restcountries.com/v3.1';
+  public error: boolean = false;
+  public cargando: boolean = false;
+  public paises: IPais[] = [];
+  
   constructor(private http: HttpClient) { }
 
   buscarPais(txt: string) {
