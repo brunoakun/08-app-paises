@@ -8,17 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorPaisComponent implements OnInit {
   termino: string = '';
+  error: boolean = false;
   constructor(private srvPais: PaisService) { }
 
   ngOnInit(): void {
   }
 
-  buscar() {
-    this.srvPais.buscarPais(this.termino).subscribe((respuesta:any) => {
-      console.log(respuesta);
-    });
+  buscar() {    
+    this.error = false;
+    this.srvPais.buscarPais(this.termino)
+      .subscribe((respuesta: any) => {
+        console.log(respuesta);
+      }, (err) => {
+        this.error = true;
+        console.log("Error");
+        console.info(err);
+      }
+      );
   }
 
-  
+
 
 }
