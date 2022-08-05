@@ -7,7 +7,10 @@ import { debounceTime, Subject } from 'rxjs';
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.scss']
 })
+
 export class BuscadorComponent implements OnInit {
+  // Decorador Input 'placeholder' lo recibimos desde el padre
+  @Input() placeholder: string = 'Buscar...';
 
   // para poder emitir el evento debouncer, decorador Output
   @Output() onDebouncer: EventEmitter<string> = new EventEmitter();
@@ -21,14 +24,14 @@ export class BuscadorComponent implements OnInit {
   ngOnInit(): void {
     this.debouncer
       .pipe(debounceTime(300))  // Emite tras 300 milisegundos despues de la última tecla pulsada
-      .subscribe(valor => {
+      .subscribe(valor => {     // Nos suscribimos al emisor del debouncer
         console.log('debouncer', valor);
         this.buscar();    // Buscamos 
-    })
+      })
   }
 
   teclaPresionada() {
-    // Evento debouncer = se ha pulsado una tecla
+    // Evento debouncer = se ha pulsado una tecla, actualizamos el termino emitir
     this.debouncer.next(this.termino);
   }
 
