@@ -22,12 +22,19 @@ export class PaisService {
     private srvUtil: UtilidadesService) {
   }
 
-  buscarPais(txt: string) {
+  buscarPaises(txt: string) {
+    // Devuelve un array de objetos <pais>
     if (this.buscarPor == 'pais') this.path = `${this.apiUrl}/name/`;
     if (this.buscarPor == 'region') this.path = `${this.apiUrl}/region/`;
     if (this.buscarPor == 'capital') this.path = `${this.apiUrl}/capital/`;
 
     return this.http.get<IPais[]>(this.path + txt);
+  }
+
+
+  buscarPaisPorCod(cod: string) {
+    // Devulve un solo objeto <país>
+    return this.http.get<any>(`${this.apiUrl}/alpha/${cod}`);
   }
 
   paisesPorPoblacion() {

@@ -12,6 +12,9 @@ export class BuscadorComponent implements OnInit {
   // Decorador Input 'placeholder' lo recibimos desde el padre
   @Input() placeholder: string = 'Buscar...';
 
+  // Decorador Input 'tipo' tipo de búsqueda a hacer, por defecto 'buscarPais'
+  @Input() tipoDeBusqueda: string = 'buscarPais';
+
   // para poder emitir el evento debouncer, decorador Output
   @Output() onDebouncer: EventEmitter<string> = new EventEmitter();
 
@@ -38,7 +41,17 @@ export class BuscadorComponent implements OnInit {
   buscar() {
     this.srvPais.error = false;
     this.srvPais.cargando = true;
-    this.srvPais.buscarPais(this.termino)
+    
+    if (this.tipoDeBusqueda == 'buscarPaises') this.buscarPaises();
+    if (this.tipoDeBusqueda == 'buscarPais') this.buscarPais();
+
+
+    console.log("Esto sale antes...");
+  }
+
+
+  buscarPaises() {
+    this.srvPais.buscarPaises(this.termino)
       .subscribe((respuesta) => {
         console.log(respuesta);
         this.srvPais.paises = respuesta;
@@ -53,12 +66,32 @@ export class BuscadorComponent implements OnInit {
         this.srvPais.cargando = false;
       }
       );
+  }
 
-    console.log("Esto sale antes...");
+
+  
+
+  buscarPais() {
+    this.srvPais.buscarPaisPorCod(this.termino)
+      .subscribe((respuesta) => {
+        console.log(respuesta);
+        this.srvPais.paises = respuesta;
+      }, (err) => {
+        this.srvPais.error = true;
+        console.log("Error");
+        console.info(err);
+        this.srvPais.paises = [];
+        this.srvPais.cargando = false;
+      }, () => {
+        console.log("Finalizado");
+        this.srvPais.cargando = false;
+      }
+      );
   }
 
 
   cambiaTermino() {
+    // El string a buscar ha cambiado
     this.srvPais.error = false;
   }
 
