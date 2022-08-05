@@ -2,6 +2,7 @@
     <input 
         [(ngModel)]="termino" 
         (ngModelChange)="cambiaTermino()"
+        (input)="teclaPresionada()"
         type="text" 
         name="termino" 
         class="form control" 

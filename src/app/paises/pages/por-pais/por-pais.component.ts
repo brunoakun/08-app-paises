@@ -11,6 +11,7 @@ export class PorPaisComponent implements OnInit {
 
   constructor(public srvPais: PaisService) { }
   ngOnInit(): void {
+    this.srvPais.error = false;
     this.srvPais.paises = [];
     this.srvPais.buscarPor = 'pais';
   }
