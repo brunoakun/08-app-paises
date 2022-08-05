@@ -9,6 +9,7 @@ import { PorRegionComponent } from './pages/por-region/por-region.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     PorRegionComponent,
     VerPaisComponent,
     TablaComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,

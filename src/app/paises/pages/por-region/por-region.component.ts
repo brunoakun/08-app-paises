@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-por-region',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorRegionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public srvPais: PaisService) { }
 
   ngOnInit(): void {
+    this.srvPais.paises = [];
+    this.srvPais.buscarPor = 'region';
   }
 
 }

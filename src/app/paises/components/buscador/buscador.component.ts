@@ -9,11 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BuscadorComponent implements OnInit {
 
   constructor(public srvPais: PaisService) { } 
-  public termino: string = ''; 
+  public termino: string = '';
 
   ngOnInit(): void {
   }
-  
+
   buscar() {
     this.srvPais.error = false;
     this.srvPais.cargando = true;
@@ -37,7 +37,7 @@ export class BuscadorComponent implements OnInit {
   }
 
 
-  cambiaTermino() { 
+  cambiaTermino() {
     this.srvPais.error = false;
   }
 

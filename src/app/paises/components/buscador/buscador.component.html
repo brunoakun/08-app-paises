@@ -5,6 +5,9 @@
         type="text" 
         name="termino" 
         class="form control" 
-        placeholder="Buscar país..."
-    >
+        placeholder="Buscar..."
+    > 
+    <span class="ms-2" *ngIf="srvPais.paises.length">{{srvPais.paises.length }}</span>
 </form>
+
+<div *ngIf="srvPais.error" class="alert alert-danger mt-2">No se encontró nada </div>

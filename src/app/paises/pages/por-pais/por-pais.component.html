@@ -6,15 +6,9 @@
     </div>
 </div>
 
-<hr>
-
-<div *ngIf="srvPais.error" class="alert alert-danger">No se encontró nada </div>
-
-
-<div *ngIf="srvPais.cargando" class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div class="mt-2 text-center">
+    <app-loading></app-loading>
 </div>
-
 
 <div class="row">
     <div class="col">
