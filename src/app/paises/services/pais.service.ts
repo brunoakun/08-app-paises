@@ -14,6 +14,7 @@ export class PaisService {
   public cargando: boolean = false;
   public buscarPor: string = '';
   public paises: IPais[] = [];
+  public paisesHistorico: IPais[] = [];
 
   private path: string = '';
 
@@ -34,8 +35,9 @@ export class PaisService {
 
   buscarPaisPorCod(cod: string) {
     // Devulve un solo objeto <país>
-    return this.http.get<any>(`${this.apiUrl}/alpha/${cod}`);
+    return this.http.get<IPais[]>(`${this.apiUrl}/alpha/${cod}`);
   }
+  
 
   paisesPorPoblacion() {
     return this.paises.sort((a, b) => (a.population > b.population) ? -1 : 1);
