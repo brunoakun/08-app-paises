@@ -21,6 +21,8 @@ export class PorRegionComponent implements OnInit {
   }
 
   buscar(region: string) {
+    if (region == this.regionActiva) return;
+    
     this.regionActiva = region;
     this.srvPais.buscarPaises(region)
       .subscribe({
