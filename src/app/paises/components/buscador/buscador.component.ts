@@ -88,9 +88,7 @@ export class BuscadorComponent implements OnInit {
         },
         complete: () => {
           console.log("Finalizado");
-          this.srvPais.cargando = false;
-          
-          this.setHistorico();
+          this.srvPais.cargando = false;          
         }
       })
   }
@@ -118,17 +116,6 @@ export class BuscadorComponent implements OnInit {
   cambiaTermino() {
     // El string a buscar ha cambiado
     this.srvPais.error = false;
-  }
-
-
-  setHistorico() {
-    this.srvPais.paises.forEach(pais => {
-      if (this.srvPais.paisesHistorico.filter(e => e.name.common === pais.name.common).length == 0) {
-         this.srvPais.paisesHistorico.push(pais)
-      }
-    });
-
-    return;
   }
 
 

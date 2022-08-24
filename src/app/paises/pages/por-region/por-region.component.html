@@ -1,11 +1,12 @@
-<h2>Por región</h2>
+<h2>Por región {{regionActiva | titlecase}}</h2>
 <hr>
-<div class="row">
-    <div class="col">
-        <app-buscador placeholder="Buscar región..."       
-        tipoDeBusqueda="buscarPaises"></app-buscador>
-    </div>
-</div>
+<button *ngFor="let region of regiones" 
+    class=" btn   btn-xs ms-1 " 
+    [class.btn-primary] = "region === regionActiva" 
+    (click)="buscar(region)" >
+        {{region | titlecase}}
+</button>
+
 
 <div class="mt-2 text-center">
     <app-loading></app-loading>
