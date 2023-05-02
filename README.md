@@ -1,4 +1,5 @@
 # 08AppPaises
+# ng build --base-href="./"
 
 ## 1.- Crear los directorios 
     pasies/(Componentes, interfaces,pages y services)

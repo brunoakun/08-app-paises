@@ -1,3 +1,6 @@
+<h2>{{pais.name.common}} </h2>
+<hr>
+
 <div *ngIf="!pais" class="alert alert-info">
     cargando...
 </div>
@@ -7,7 +10,7 @@
 
 
     <div class="col-4">
-        <h3>{{pais.name.common}}</h3>
+        <h3>Bandera y escudo:</h3>
         <img [src]="pais.flags.png" class="img-thumbnail">
         <img [src]="pais.coatOfArms.png" class="img-thumbnail">
     </div>
@@ -16,6 +19,7 @@
         <h3>Información:</h3>
         <ul class="list-group">
             <li class="list-group-item">Población: <small>{{pais.population | number}}</small></li>
+            <li class="list-group-item">Población 'es': <small> {{pais.population | number:'1.0-0':'fr'}}</small></li>
             <li class="list-group-item">Capital: <small>{{pais.capital }}</small></li>
             <li class="list-group-item">Área: <small>{{pais.area | number}}</small></li>
         </ul>
